@@ -1,0 +1,2 @@
+# ReversiTimtikh
+ Reversi for hse
