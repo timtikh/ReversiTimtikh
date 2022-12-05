@@ -48,8 +48,6 @@ public class GameManager {
             Printer.printAvailableCells(!Data.PlayerisWhite, cells);
             choosedCell = Reader.readPlayersCell(cells);
             FieldManager.ChangeCells(Data.field, choosedCell, !Data.PlayerisWhite);
-
-
         }
     }
 }
