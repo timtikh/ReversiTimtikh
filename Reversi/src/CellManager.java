@@ -1,6 +1,4 @@
-import java.util.List;
-
-public class GameLogic {
+public class CellManager {
     public static Cell[] CheckCells(Cell[][] field, boolean isWhite) {
         Cell[] AvailableCells = new Cell[64];
         Cell[] EnemyCells = new Cell[64];
@@ -233,7 +231,7 @@ public class GameLogic {
 
     private static boolean CheckEnemyDirection(Cell[][] field, int x, int y, boolean isWhite) {
         boolean result = false;
-        //field[x][y].cleanEnemyDirection();
+        field[x][y].cleanEnemyDirection();
         if (x > 0 && y > 0) {
             if (field[x - 1][y - 1].getValue().equals("OO") && !isWhite) {
                 result = true;
@@ -307,5 +305,11 @@ public class GameLogic {
             }
         }
         return result;
+    }
+    public static int[] CellNumberToCell(int choosedCell) {
+        int[] cell = new int[2];
+        cell[0] = (choosedCell-1) / 8;
+        cell[1] = (choosedCell-1) % 8;
+        return cell;
     }
 }
