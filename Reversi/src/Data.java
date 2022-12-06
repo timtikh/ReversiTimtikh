@@ -6,7 +6,7 @@ public class Data {
         int counter = 1;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                //if counter less than 10 add 0 to the beginning
+                // if counter less than 10 add 0 to the beginning
                 if (counter < 10) {
                     field[i][j] = new Cell(i, j, "0" + counter);
                 } else {
@@ -19,6 +19,16 @@ public class Data {
         field[3][4].setValue("XX");
         field[4][3].setValue("XX");
         field[4][4].setValue("OO");
+    }
+
+    public static Cell[][] copyField() {
+        Cell[][] newField = new Cell[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                newField[i][j] = new Cell(i, j, field[i][j].getValue());
+            }
+        }
+        return newField;
     }
 
     public static boolean PlayerisWhite = true;

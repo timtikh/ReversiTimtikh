@@ -164,4 +164,14 @@ public class CellManager {
         cell[1] = (choosedCell - 1) % 8;
         return cell;
     }
+
+    public static boolean cellArrayIsNull(Cell[] cells) {
+        // check if all elements of array are null
+        for (int i = 0; i < cells.length; i++) {
+            if (cells[i] != null) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

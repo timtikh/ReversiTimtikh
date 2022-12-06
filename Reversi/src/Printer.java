@@ -80,4 +80,13 @@ public class Printer {
         }
         return;
     }
+
+    public static void printNoAvailableCells(boolean playerisWhite) {
+        // print message about no available cells
+        if (playerisWhite) {
+            System.out.println("No available cells for white(OO) - the turn goes to black(XX)");
+        } else {
+            System.out.println("No available cells for black(XX) - the turn goes to white(OO)");
+        }
+    }
 }
