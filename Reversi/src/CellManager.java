@@ -32,28 +32,28 @@ public class CellManager {
         for (Direction direction : Position.getEnemyDirection()) {
             switch (direction) {
                 case N:
-                    isAvailable = CheckUpCells(field, x, y, isWhite);
-                    break;
-                case S:
-                    isAvailable = CheckDownCells(field, x, y, isWhite);
-                    break;
-                case W:
-                    isAvailable = CheckLeftCells(field, x, y, isWhite);
-                    break;
-                case E:
-                    isAvailable = CheckRightCells(field, x, y, isWhite);
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, -1, 0, isWhite);
                     break;
                 case NE:
-                    isAvailable = CheckUpRightCells(field, x, y, isWhite);
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, -1, 1, isWhite);
                     break;
-                case NW:
-                    isAvailable = CheckUpLeftCells(field, x, y, isWhite);
+                case E:
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, 0, 1, isWhite);
                     break;
                 case SE:
-                    isAvailable = CheckDownRightCells(field, x, y, isWhite);
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, 1, 1, isWhite);
+                    break;
+                case S:
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, 1, 0, isWhite);
                     break;
                 case SW:
-                    isAvailable = CheckDownLeftCells(field, x, y, isWhite);
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, 1, -1, isWhite);
+                    break;
+                case W:
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, 0, -1, isWhite);
+                    break;
+                case NW:
+                    isAvailable = FieldManager.checkIfDirectionCorrect(field, x, y, -1, -1, isWhite);
                     break;
             }
             if (isAvailable) {
@@ -151,7 +151,7 @@ public class CellManager {
         return result;
     }
 
-    //check diagonal cells method
+    // check diagonal cells method
     private static boolean CheckDownRightCells(Cell[][] field, int x, int y, boolean isWhite) {
         int blackCounter = 0;
         int whiteCounter = 0;
@@ -181,7 +181,6 @@ public class CellManager {
         result = CheckIfRowAvailable(whiteCounter, blackCounter, isWhite);
         return result;
     }
-
 
     private static boolean CheckUpRightCells(Cell[][] field, int x, int y, boolean isWhite) {
         int blackCounter = 0;
@@ -306,10 +305,11 @@ public class CellManager {
         }
         return result;
     }
+
     public static int[] CellNumberToCell(int choosedCell) {
         int[] cell = new int[2];
-        cell[0] = (choosedCell-1) / 8;
-        cell[1] = (choosedCell-1) % 8;
+        cell[0] = (choosedCell - 1) / 8;
+        cell[1] = (choosedCell - 1) % 8;
         return cell;
     }
 }

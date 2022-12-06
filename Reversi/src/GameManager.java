@@ -1,34 +1,36 @@
 public class GameManager {
-    public void StartNewGame(){
+    public void StartNewGame() {
         Printer.startGame();
-        if (Data.PlayerisWhite && Data.GameWithComputer){
+        if (Data.PlayerisWhite && Data.GameWithComputer) {
             ArtificialPlayer.MakeTurn(Data.field, Data.PlayerisWhite);
             RunGameWithComputer();
-        } else if (!Data.PlayerisWhite && Data.GameWithComputer){
+        } else if (!Data.PlayerisWhite && Data.GameWithComputer) {
             RunGameWithComputer();
-        } else if (!Data.GameWithComputer){
+        } else if (!Data.GameWithComputer) {
             RunGameWithHuman();
         }
     }
-    private void RunGameWithComputer(){
-        while (!Data.GameOver){
+
+    private void RunGameWithComputer() {
+        while (!Data.GameOver) {
             Printer.printField();
             Printer.printScore();
             Cell[] cells = CellManager.CheckCells(Data.field, Data.PlayerisWhite);
-            Printer.printAvailableCells(Data.PlayerisWhite,cells);
-            if (Data.PlayerisWhite){
+            Printer.printAvailableCells(Data.PlayerisWhite, cells);
+            if (Data.PlayerisWhite) {
                 // player turn
             } else {
                 // computer turn
             }
         }
     }
-    private void RunGameWithHuman(){
-        while (!Data.GameOver){
+
+    private void RunGameWithHuman() {
+        while (!Data.GameOver) {
             Printer.printField();
             Printer.printScore();
             Cell[] cells = CellManager.CheckCells(Data.field, Data.PlayerisWhite);
-            if (cells.length == 0){
+            if (cells.length == 0) {
                 Data.GameOver = true;
                 Printer.printGameOver();
                 return;
@@ -40,7 +42,7 @@ public class GameManager {
             Printer.printField();
             Printer.printScore();
             cells = CellManager.CheckCells(Data.field, !Data.PlayerisWhite);
-            if (cells.length == 0){
+            if (cells.length == 0) {
                 Data.GameOver = true;
                 Printer.printGameOver();
                 return;
