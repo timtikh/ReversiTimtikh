@@ -87,19 +87,19 @@ public class FieldManager {
         int i = x + xParam;
         int j = y + yParam;
         if (playerisWhite) {
-            while (i > 0 && i < 7 && j > 0 && j < 7 && field[i][j].getValue().equals("XX")) {
+            while (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("XX")) {
                 i += xParam;
                 j += yParam;
             }
-            if (field[i][j].getValue().equals("OO")) {
+            if (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("OO")) {
                 return true;
             }
         } else {
-            while (i > 0 && i < 7 && j > 0 && j < 7 && field[i][j].getValue().equals("OO")) {
+            while (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("OO")) {
                 i += xParam;
                 j += yParam;
             }
-            if (field[i][j].getValue().equals("XX")) {
+            if (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("XX")) {
                 return true;
             }
         }
@@ -111,13 +111,13 @@ public class FieldManager {
         int i = x + xParam;
         int j = y + yParam;
         if (playerisWhite) {
-            while (i > 0 && i < 7 && j > 0 && j < 7 && field[i][j].getValue().equals("XX")) {
+            while (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("XX")) {
                 field[i][j].setValue("OO");
                 i += xParam;
                 j += yParam;
             }
         } else {
-            while (i > 0 && i < 7 && j > 0 && j < 7 && field[i][j].getValue().equals("OO")) {
+            while (i >= 0 && i <= 7 && j >= 0 && j <= 7 && field[i][j].getValue().equals("OO")) {
                 field[i][j].setValue("XX");
                 i += xParam;
                 j += yParam;

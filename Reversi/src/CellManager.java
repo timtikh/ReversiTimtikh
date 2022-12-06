@@ -71,7 +71,7 @@ public class CellManager {
             for (int j = 0; j < 8; j++) {
                 if (!field[i][j].getValue().equals("OO") && !field[i][j].getValue().equals("XX")) {
                     if (CheckEnemyDirection(field, i, j, isWhite)) {
-                        cells[counter] = Data.field[i][j];
+                        cells[counter] = field[i][j];
                         counter++;
                     }
                 }
